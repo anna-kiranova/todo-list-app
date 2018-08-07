@@ -3,24 +3,27 @@ import TaskItem from './TaskItem';
 import { connect } from 'react-redux';
 import { toggleDone } from '../actions/task';
 
+import { Table } from 'semantic-ui-react'
+
 const TasksList = ({
     tasks,
     toggleDoneFunc
-}) => <table>
-        <thead>
-            <tr>
-                <th>Done</th>
-                <th>Title</th>
-                <th>Priority</th>
-                <th>Date</th>
-            </tr>
-        </thead>
-        <tbody>
+}) => <Table striped>
+        <Table.Header>
+            <Table.Row>
+                 <Table.HeaderCell>Done</Table.HeaderCell>
+                 <Table.HeaderCell>Title</Table.HeaderCell>
+                 <Table.HeaderCell>Priority</Table.HeaderCell>
+                 <Table.HeaderCell>Date</Table.HeaderCell>
+            </Table.Row>
+        </Table.Header>
+
+        <Table.Body>
             {tasks.map((task) => 
                 <TaskItem key={task.id} task={task} toggleDone={toggleDoneFunc}/>)} 
                 {/* toggleDone is action */}
-        </tbody>
-    </table>
+        </Table.Body>
+    </Table>
 
 
 const mapStateToProps = (state) => {

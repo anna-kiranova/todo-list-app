@@ -10,7 +10,11 @@ export const addTask = (event) => {
         done: false
     };
     event.target.querySelectorAll('[name]').forEach(el => {
-        data[el.getAttribute('name')] = el.value;
+        if (el.getAttribute('name') === 'priority') {
+            data[el.getAttribute('name')] = el.querySelector('div[aria-selected=true]').innerText;
+        } else {
+            data[el.getAttribute('name')] = el.value;
+        }
     });
     console.log('addTask', data);
     event.target.reset();

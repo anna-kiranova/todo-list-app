@@ -1,21 +1,23 @@
 import React from 'react';
 
+import { Table } from 'semantic-ui-react'
+
 export default ({ task, toggleDone }) => (
-  <tr>
-    <td>
+  <Table.Row>
+    <Table.Cell>
       <input type="checkbox" checked={task.done} onChange={() => {
         console.log('check', task)
         toggleDone(task.id)
       }} />
-    </td>
-    <td>
+    </Table.Cell>
+    <Table.Cell title={task.descr} >
         {task.title}
-    </td>
-    <td>
+    </Table.Cell>
+    <Table.Cell>
         {task.priority}
-    </td>
-    <td>
+    </Table.Cell>
+    <Table.Cell>
         {task.date}
-    </td>
-  </tr>
+    </Table.Cell>
+  </Table.Row>
 )

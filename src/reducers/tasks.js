@@ -5,7 +5,7 @@ const DEFAULT_STATE = [];
 export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {
         case ADD_TASK:
-            return [...state, action.data];
+            return [...state, action.payload];
         case TOGGLE_DONE:
             return state.map(task => {
                 let copy = {...task}

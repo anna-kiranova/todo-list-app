@@ -21,5 +21,6 @@
   "devDependencies": {
     "eslint-config-google": "^0.9.1",
     "redux-devtools": "^3.4.1"
-  }
+  },
+  "homepage" : "http://anna-kiranova.github.io/todo"
 }
